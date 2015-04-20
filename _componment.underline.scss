@@ -6,13 +6,16 @@
  * Set some nice underline
  */
 
+// Predefine the variables below in order to alter and enable specific features.
+$inuit-underline-namespace: $inuit-namespace !default;
+
 $underline-color:            #333 !default;
 $position:                   1px !default;
 $width:                      1px !default;
 $background-color:           #fff !default;
 
-.#{$inuit-block-namespace}underline,
-%#{$inuit-block-namespace}underline {
+.#{$inuit-underline-namespace}underline,
+%#{$inuit-underline-namespace}underline {
   color: $inuit-base-text-color;
   @include underline();
 }
@@ -73,8 +76,8 @@ If you do not want to underline a link.
     <a href="#" class="no-underline">Link</a>
 ```
 */
-.#{$inuit-block-namespace}no-underline
-%#{$inuit-block-namespace}no-underline {
+.#{$inuit-underline-namespace}no-underline
+%#{$inuit-underline-namespace}no-underline {
   text-decoration: none;
   &:hover {
     text-decoration: underline;
