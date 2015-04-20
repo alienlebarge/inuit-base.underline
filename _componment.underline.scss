@@ -47,9 +47,9 @@ h5,
 h6,
 .zeta {
   & a.underline {
-    @include underline($underline-text-color, 1px, 1px);
+    @include underline($underline-link-color, 1px, 1px);
     &:hover {
-      @include underline($underline-primary-color, 1px, 1px);
+      @include underline($underline-link-color--hover, 1px, 1px);
     }
   }
 }
