@@ -7,13 +7,15 @@
  */
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-underline-namespace: $inuit-namespace !default;
+$inuit-underline-namespace:   $inuit-namespace !default;
 
-$underline-text-color:       $inuit-base-text-color !default;
-$underline-color:            $underline-text-color !default;
-$underline-position:         1px !default;
-$underline-width:            1px !default;
-$underline-background-color: $inuit-base-background-color !default;
+$underline-text-color:        $inuit-base-text-color !default;
+$underline-color:             $underline-text-color !default;
+$underline-position:          1px !default;
+$underline-width:             1px !default;
+$underline-background-color:  $inuit-base-background-color !default;
+$underline-link-color:        #ff0000;
+$underline-link-color--hover: $underline-text-color:;
 
 .#{$inuit-underline-namespace}underline,
 %#{$inuit-underline-namespace}underline {
@@ -22,14 +24,12 @@ $underline-background-color: $inuit-base-background-color !default;
 }
 
 a.underline {
-  color: $underline-text-color;
-  //@include transition(color, 200ms, ease);
+  color: $underline-link-color;
   @include underline();
 
   &:hover {
-    color: $base-primary-color;
-    //@include transition(color, 200ms, ease);
-    @include underline($base-primary-color);
+    color: $underline-link-color--hover;
+    @include underline($underline-link-color--hover);
   }
 }
 
@@ -49,7 +49,7 @@ h6,
   & a.underline {
     @include underline($underline-text-color, 1px, 1px);
     &:hover {
-      @include underline($base-primary-color, 1px, 1px);
+      @include underline($underline-primary-color, 1px, 1px);
     }
   }
 }
