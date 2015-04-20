@@ -23,7 +23,7 @@ $underline-link-color--hover: $underline-text-color:;
   @include underline();
 }
 
-a.underline {
+a.#{$inuit-underline-namespace}underline {
   color: $underline-link-color;
   @include underline($underline-link-color);
 
@@ -46,7 +46,7 @@ h5,
 .epsilon,
 h6,
 .zeta {
-  & a.underline {
+  & a.#{$inuit-underline-namespace}underline {
     @include underline($underline-link-color, 1px, 1px);
     &:hover {
       @include underline($underline-link-color--hover, 1px, 1px);
@@ -55,7 +55,7 @@ h6,
 }
 
 // no underline for buttons
-a.underline.btn {
+a.#{$inuit-underline-namespace}underline.btn {
   background-image: none;
   text-shadow: none;
 }
