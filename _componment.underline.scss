@@ -9,19 +9,20 @@
 // Predefine the variables below in order to alter and enable specific features.
 $inuit-underline-namespace: $inuit-namespace !default;
 
-$underline-color:            #333 !default;
-$position:                   1px !default;
-$width:                      1px !default;
-$background-color:           #fff !default;
+$underline-text-color:       $inuit-base-text-color !default;
+$underline-color:            $underline-text-color !default;
+$underline-position:         1px !default;
+$underline-width:            1px !default;
+$underline-background-color: $inuit-base-background-color !default;
 
 .#{$inuit-underline-namespace}underline,
 %#{$inuit-underline-namespace}underline {
-  color: $inuit-base-text-color;
+  color: $underline-text-color;
   @include underline();
 }
 
 a.underline {
-  color: $inuit-base-text-color;
+  color: $underline-text-color;
   //@include transition(color, 200ms, ease);
   @include underline();
 
@@ -46,7 +47,7 @@ h5,
 h6,
 .zeta {
   & a.underline {
-    @include underline($inuit-base-text-color, 1px, 1px);
+    @include underline($underline-text-color, 1px, 1px);
     &:hover {
       @include underline($base-primary-color, 1px, 1px);
     }
