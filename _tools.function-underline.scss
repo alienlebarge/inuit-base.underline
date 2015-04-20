@@ -1,0 +1,37 @@
+/*
+---
+title: Mixin underline
+name: mixin-underline
+parent: mixin
+---
+If you set the variable in ems, be carefull. Firefox doesn't like dimensions <1px.
+`$var * base-font-size > 1px`
+```scss
+@mixin underline {...}
+```
+*/
+@mixin underline ($underline-color: #333, $position: 1px, $width: 1px, $background-color: #ffffff, $cut-distance: $width) {
+
+  // remove classic underline
+  text-decoration: none;
+
+  // the underline
+  background: linear-gradient(to top, $background-color, $background-color $position, $underline-color $position, $underline-color $position+$width, $background-color $position+$width);
+
+  // text-shadow
+  // why so much ?! -> http://dsh.re/14297
+  $precision: 5;
+  $all: ();
+  @for $i from 1 through $precision {
+    $distance: $cut-distance*$i/$precision;
+    $all: append($all, 0 $distance 0 $background-color, comma);
+    $all: append($all, 0 (-$distance) 0 $background-color, comma);
+    $all: append($all, $distance 0 0 $background-color, comma);
+    $all: append($all, (-$distance) 0 0 $background-color, comma);
+    $all: append($all, (-$distance) (-$distance) 0 $background-color,comma);
+    $all: append($all, (-$distance) $distance 0 $background-color,comma);
+    $all: append($all, $distance (-$distance) 0 $background-color,comma);
+    $all: append($all, $distance $distance 0 $background-color,comma);
+  }
+  text-shadow: $all;
+}
