@@ -13,8 +13,8 @@ $underline-color:             $inuit-base-text-color !default;
 $underline-position:          1px !default;
 $underline-width:             1px !default;
 $underline-background-color:  $inuit-base-background-color !default;
-$underline-link-color:        #ff0000;
-$underline-link-color--hover: $underline-text-color:;
+$underline-link-color:        #ff0000 !default;
+$underline-link-color--hover: $underline-text-color !default;
 
 .#{$inuit-underline-namespace}underline,
 %#{$inuit-underline-namespace}underline {
