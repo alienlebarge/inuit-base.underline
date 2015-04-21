@@ -16,12 +16,55 @@ $underline-background-color:  $inuit-base-background-color !default;
 $underline-link-color:        #ff0000 !default;
 $underline-link-color--hover: $underline-text-color !default;
 
+
+
+
+
+@mixin underline ($underline-color: #333, $underline-position: 1px, $underline-width: 1px, $underline-background-color: #ffffff, $underline-shadow-width: $underline-width) {
+
+  // remove classic underline
+  text-decoration: none;
+
+  // the underline
+  background: linear-gradient(to top, $underline-background-color, $underline-background-color $underline-position, $underline-color $underline-position, $underline-color $underline-position+$underline-width, $underline-background-color $underline-position+$underline-width);
+
+  // text-shadow
+  // why so much ?! -> http://dsh.re/14297
+  $precision: 5;
+  $all: ();
+  @for $i from 1 through $precision {
+    $distance: $underline-shadow-width*$i/$precision;
+    $all: append($all, 0 $distance 0 $underline-background-color, comma);
+    $all: append($all, 0 (-$distance) 0 $underline-background-color, comma);
+    $all: append($all, $distance 0 0 $underline-background-color, comma);
+    $all: append($all, (-$distance) 0 0 $underline-background-color, comma);
+    $all: append($all, (-$distance) (-$distance) 0 $underline-background-color,comma);
+    $all: append($all, (-$distance) $distance 0 $underline-background-color,comma);
+    $all: append($all, $distance (-$distance) 0 $underline-background-color,comma);
+    $all: append($all, $distance $distance 0 $underline-background-color,comma);
+  }
+  text-shadow: $all;
+}
+
+
+
+
+/**
+ * Add a nice underline
+ */
 .#{$inuit-underline-namespace}underline,
 %#{$inuit-underline-namespace}underline {
   color: $underline-text-color;
   @include underline();
 }
 
+
+
+
+
+/**
+ * Add a nice underline witch is the color of the links
+ */
 a.#{$inuit-underline-namespace}underline {
   color: $underline-link-color;
   @include underline($underline-link-color);
@@ -32,7 +75,14 @@ a.#{$inuit-underline-namespace}underline {
   }
 }
 
-// heading fonts need another underline position
+
+
+
+
+/**
+ * If headings have a different font, they might need another underline
+ * settings
+ */
 h1,
 .alpha,
 h2,
@@ -53,7 +103,14 @@ h6,
   }
 }
 
-// no underline for buttons
+
+
+
+
+
+/**
+ * Button doesn't have underline
+ */
 a.#{$inuit-underline-namespace}underline.btn {
   background-image: none;
   text-shadow: none;
@@ -62,20 +119,10 @@ a.#{$inuit-underline-namespace}underline.btn {
 
 
 
-/*doc
- ---
-title: No underlined link
-name: no-underlined-link
-parent: link
----
 
-If you do not want to underline a link.
-`:hover` highlight & undeline the link when hovered.
-
-```html_example
-    <a href="#" class="no-underline">Link</a>
-```
-*/
+/**
+ * Link without underline
+ */
 .#{$inuit-underline-namespace}no-underline
 %#{$inuit-underline-namespace}no-underline {
   text-decoration: none;
