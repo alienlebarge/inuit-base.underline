@@ -10,7 +10,7 @@ If you set the variable in ems, be carefull. Firefox doesn't like dimensions <1p
 @mixin underline {...}
 ```
 */
-@mixin underline ($underline-color: #333, $underline-position: 1px, $underline-width: 1px, $underline-background-color: #ffffff, $cut-distance: $underline-width) {
+@mixin underline ($underline-color: #333, $underline-position: 1px, $underline-width: 1px, $underline-background-color: #ffffff, $underline-shadow-width: $underline-width) {
 
   // remove classic underline
   text-decoration: none;
@@ -23,7 +23,7 @@ If you set the variable in ems, be carefull. Firefox doesn't like dimensions <1p
   $precision: 5;
   $all: ();
   @for $i from 1 through $precision {
-    $distance: $cut-distance*$i/$precision;
+    $distance: $underline-shadow-width*$i/$precision;
     $all: append($all, 0 $distance 0 $underline-background-color, comma);
     $all: append($all, 0 (-$distance) 0 $underline-background-color, comma);
     $all: append($all, $distance 0 0 $underline-background-color, comma);
