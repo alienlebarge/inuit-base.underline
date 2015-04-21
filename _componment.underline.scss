@@ -20,6 +20,7 @@ $underline-link-color--hover: $underline-text-color !default;
 
 
 
+
 // Underline mixin
 @mixin underline ($underline-color: $underline-color, $underline-position: $underline-position, $underline-width: $underline-width, $underline-background-color: $underline-background-color, $underline-shadow-width: $underline-width) {
 
@@ -50,6 +51,7 @@ $underline-link-color--hover: $underline-text-color !default;
 
 
 
+
 /**
  * Add a nice underline
  */
@@ -75,7 +77,6 @@ a.#{$inuit-underline-namespace}underline {
     @include underline($underline-link-color--hover);
   }
 }
-
 
 
 
