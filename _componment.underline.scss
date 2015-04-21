@@ -19,7 +19,7 @@ $underline-link-color--hover: $underline-text-color !default;
 
 
 
-
+// Underline mixin
 @mixin underline ($underline-color: #333, $underline-position: 1px, $underline-width: 1px, $underline-background-color: #ffffff, $underline-shadow-width: $underline-width) {
 
   // remove classic underline
