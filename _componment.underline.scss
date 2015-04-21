@@ -80,34 +80,6 @@ a.#{$inuit-underline-namespace}underline {
 
 
 
-/**
- * If headings have a different font, they might need another underline
- * settings
- */
-h1,
-.alpha,
-h2,
-.beta,
-h3,
-.gamma,
-h4,
-.delta,
-h5,
-.epsilon,
-h6,
-.zeta {
-  & a.#{$inuit-underline-namespace}underline {
-    @include underline($underline-link-color, 1px, 1px);
-    &:hover {
-      @include underline($underline-link-color--hover, 1px, 1px);
-    }
-  }
-}
-
-
-
-
-
 
 /**
  * Button doesn't have underline
