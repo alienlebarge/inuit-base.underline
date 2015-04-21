@@ -14,6 +14,7 @@ $underline-position:          1px !default;
 $underline-width:             1px !default;
 $underline-background-color:  $inuit-base-background-color !default;
 
+$links-underlined:              true !default;
 $underline-link-color:        #ff0000 !default;
 $underline-link-color--hover: $underline-text-color !default;
 
@@ -64,43 +65,46 @@ $underline-link-color--hover: $underline-text-color !default;
 
 
 
+// If links are underlined
+@if $links-underlined == true {
+  /**
+   * Add a nice underline witch is the color of the links
+   */
+  a.#{$inuit-underline-namespace}underline {
+    color: $underline-link-color;
+    @include underline($underline-link-color);
 
-/**
- * Add a nice underline witch is the color of the links
- */
-a.#{$inuit-underline-namespace}underline {
-  color: $underline-link-color;
-  @include underline($underline-link-color);
-
-  &:hover {
-    color: $underline-link-color--hover;
-    @include underline($underline-link-color--hover);
+    &:hover {
+      color: $underline-link-color--hover;
+      @include underline($underline-link-color--hover);
+    }
   }
-}
 
 
 
 
 
-/**
- * Button doesn't have underline
- */
-a.#{$inuit-underline-namespace}underline.btn {
-  background-image: none;
-  text-shadow: none;
-}
+
+  /**
+   * Button doesn't have underline
+   */
+  a.#{$inuit-underline-namespace}underline.btn {
+    background-image: none;
+    text-shadow: none;
+  }
 
 
 
 
 
-/**
- * Link without underline
- */
-.#{$inuit-underline-namespace}no-underline
-%#{$inuit-underline-namespace}no-underline {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  /**
+   * Link without underline
+   */
+  .#{$inuit-underline-namespace}no-underline
+  %#{$inuit-underline-namespace}no-underline {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
