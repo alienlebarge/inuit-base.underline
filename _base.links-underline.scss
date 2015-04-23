@@ -18,7 +18,7 @@ $underline-link-color--hover: $underline-color !default;
 
 a {
   color: $underline-link-color;
-  @include underline();
+  @include underline($underline-link-color);
 
   &:hover {
     color: $underline-link-color--hover;
