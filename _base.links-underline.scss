@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    #UNDERLINE LINKS
+\*------------------------------------*/
+
+// Include this file if you want nice underline for your links `<a>`.
+
+
+
+
+
+// Predefine the variables below in order to alter and enable specific features.
+$underline-link-color:        #ff0000 !default;
+$underline-link-color--hover: $underline-color !default;
+
+
+
+
+
+a {
+  color: $underline-link-color;
+  @include underline();
+
+  &:hover {
+    color: $underline-link-color--hover;
+    @include underline($underline-link-color--hover);
+  }
+}
