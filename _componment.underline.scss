@@ -18,18 +18,24 @@
 
 
 
+
 // If links are underlined
 @if $links-underlined == true {
   /**
    * Add a nice underline witch is the color of the links
    */
-  a.#{$inuit-underline-namespace}underline {
-    color: $underline-link-color;
-    @include underline($underline-link-color);
+  a {
+    &.#{$inuit-underline-namespace}underline,
+    .#{$inuit-underline-namespace}underline {
 
-    &:hover {
-      color: $underline-link-color--hover;
-      @include underline($underline-link-color--hover);
+      color: $underline-link-color;
+      @include underline($underline-link-color);
+
+      &:hover {
+        color: $underline-link-color--hover;
+        @include underline($underline-link-color--hover);
+      }
+
     }
   }
 
