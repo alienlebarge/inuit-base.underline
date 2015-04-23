@@ -1,0 +1,28 @@
+{
+  "name": "inuit-underline",
+  "version": "0.0.1",
+  "homepage": "https://github.com/alienlebarge/inuit-underline",
+  "authors": [
+    "Cédric Aellen <cedric.aellen@alienlebarge.ch>"
+  ],
+  "description": "Set of underline rules for the inuitcss framework",
+  "main": "_components.underline.scss",
+  "keywords": [
+    "typography",
+    "underline",
+    "inuitcss",
+    "oocss",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "inuit-defaults": "~0.2.2"
+  }
+}
