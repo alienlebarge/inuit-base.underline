@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #UNDERLINE LINKS
+\*------------------------------------*/
+
+@if $links-underlined == true {
+  a {
+    color: $underline-link-color;
+    @include underline();
+
+    &:hover {
+      color: $underline-link-color--hover;
+      @include underline($underline-link-color--hover);
+    }
+  }
+}

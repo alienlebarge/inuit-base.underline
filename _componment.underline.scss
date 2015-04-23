@@ -1,53 +1,6 @@
 /*------------------------------------*\
-    #UNDERLINE
+    #UNDERLINE COMPONENT
 \*------------------------------------*/
-
-/**
- * Set some nice underline
- */
-
-// Predefine the variables below in order to alter and enable specific features.
-$inuit-underline-namespace:   $inuit-namespace !default;
-
-$underline-color:             $inuit-base-text-color !default;
-$underline-position:          1px !default;
-$underline-width:             1px !default;
-$underline-background-color:  $inuit-base-background-color !default;
-
-$links-underlined:            true !default;
-$underline-link-color:        #ff0000 !default;
-$underline-link-color--hover: $underline-color !default;
-
-
-
-
-
-// Underline mixin
-@mixin underline ($underline-color: $underline-color, $underline-position: $underline-position, $underline-width: $underline-width, $underline-background-color: $underline-background-color, $underline-shadow-width: $underline-width) {
-
-  // remove classic underline
-  text-decoration: none;
-
-  // the underline
-  background: linear-gradient(to top, $underline-background-color, $underline-background-color $underline-position, $underline-color $underline-position, $underline-color $underline-position+$underline-width, $underline-background-color $underline-position+$underline-width);
-
-  // text-shadow
-  // why so much ?! -> http://dsh.re/14297
-  $precision: 5;
-  $all: ();
-  @for $i from 1 through $precision {
-    $distance: $underline-shadow-width*$i/$precision;
-    $all: append($all, 0 $distance 0 $underline-background-color, comma);
-    $all: append($all, 0 (-$distance) 0 $underline-background-color, comma);
-    $all: append($all, $distance 0 0 $underline-background-color, comma);
-    $all: append($all, (-$distance) 0 0 $underline-background-color, comma);
-    $all: append($all, (-$distance) (-$distance) 0 $underline-background-color,comma);
-    $all: append($all, (-$distance) $distance 0 $underline-background-color,comma);
-    $all: append($all, $distance (-$distance) 0 $underline-background-color,comma);
-    $all: append($all, $distance $distance 0 $underline-background-color,comma);
-  }
-  text-shadow: $all;
-}
 
 
 
