@@ -5,7 +5,7 @@ stylesheet with nice underlined in it. These files are made to be used with
 [InuitCSS framework](http://www.inuitcss.com) and the
 [itcss.io](http://itcss.io/) CSS architecture.
 
-**This is a work in progress!** Do not use it in production.
+:warning: This is a work in progress! Do not use it in production. :warning:
 
 ![with and without underline style](http://alb-dropshare.s3.amazonaws.com/2015-04-09-before-after-underline-firefox-zoz0SWtWc2/2015-04-09-before-after-underline-firefox.png)
 
