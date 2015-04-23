@@ -33,7 +33,7 @@ It contain the mixins used by the other files.
 
 If you want your links to have a nice underline, include this file.
 
-### `_component.underline.scss`
+### `_components.underline.scss`
 
 Create an `.underline` class that you can use in your project.
 
