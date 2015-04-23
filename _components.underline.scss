@@ -60,7 +60,7 @@ a {
   /**
    * Link without underline
    */
-  .#{$inuit-underline-namespace}no-underline
+  .#{$inuit-underline-namespace}no-underline,
   %#{$inuit-underline-namespace}no-underline {
     text-decoration: none;
     &:hover {
