@@ -9,6 +9,25 @@
 // Underline mixin
 @mixin underline ($underline-color: $underline-color, $underline-position: $underline-position, $underline-width: $underline-width, $underline-background-color: $underline-background-color, $underline-shadow-width: $underline-width) {
 
+  // convert em -> px
+  @if unit($underline-width)==em {
+    // remove unit
+    $underline-width: $underline-width / ($underline-width * 0 + 1);
+    // multiply by default browser font size (16px) to get px
+    $underline-width: ($underline-width * 16) * 1px;
+  }
+  @if unit($underline-position)==em {
+    // remove unit
+    $underline-position: $underline-position / ($underline-position * 0 + 1);
+    // multiply by default browser font size (16px) to get px
+    $underline-position: ($underline-position * 16)px;
+  }
+
+  // warn if width is thinner than 1px
+  @if $underline-width < 1px {
+    @warn "The width of the underline is #{$underline-width}. Some browsers may not render line thinner than 1px."
+  }
+
   // remove classic underline
   text-decoration: none;
 
