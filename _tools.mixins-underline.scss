@@ -20,7 +20,7 @@
     // remove unit
     $underline-position: $underline-position / ($underline-position * 0 + 1);
     // multiply by default browser font size (16px) to get px
-    $underline-position: ($underline-position * 16)px;
+    $underline-position: ($underline-position * 16) * 1px;
   }
 
   // warn if width is thinner than 1px
