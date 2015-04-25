@@ -39,21 +39,12 @@
   $precision: 5;
   $all: ();
   $delta-distance: $underline-shadow-width * 2 / ($precision - 1);
-  // from top-left to top-right
+  // from left to right
   @for $i from 0 through ($precision - 1) {
-    $all: append($all, (-$underline-shadow-width)+$delta-distance*$i (-$underline-shadow-width) 0 $underline-background-color, comma)
-  }
-  // from bottom-left to bottom-right
-  @for $i from 0 through ($precision - 1) {
-    $all: append($all, (-$underline-shadow-width)+$delta-distance*$i $underline-shadow-width 0 $underline-background-color, comma)
-  }
-  // from top-left to bottom-left
-  @for $i from 0 through ($precision - 1) {
-    $all: append($all, (-$underline-shadow-width) (-$underline-shadow-width)+$delta-distance*$i 0 $underline-background-color, comma)
-  }
-  // from top-right to bottom-right
-  @for $i from 0 through ($precision - 1) {
-    $all: append($all, $underline-shadow-width (-$underline-shadow-width)+$delta-distance*$i 0 $underline-background-color, comma)
+    // from top to bottom
+    @for $y from 0 through ($precision - 1){
+      $all: append($all, (-$underline-shadow-width)+$delta-distance*$i ((-$underline-shadow-width)+$delta-distance*$y) 0 $underline-background-color, comma)
+    }
   }
   text-shadow: $all;
 }
