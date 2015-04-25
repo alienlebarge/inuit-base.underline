@@ -39,15 +39,16 @@
   $precision: 5;
   $all: ();
   @for $i from 1 through $precision {
-    $distance: $underline-shadow-width*$i/$precision;
-    $all: append($all, 0 $distance 0 $underline-background-color, comma);
-    $all: append($all, 0 (-$distance) 0 $underline-background-color, comma);
-    $all: append($all, $distance 0 0 $underline-background-color, comma);
-    $all: append($all, (-$distance) 0 0 $underline-background-color, comma);
-    $all: append($all, (-$distance) (-$distance) 0 $underline-background-color,comma);
-    $all: append($all, (-$distance) $distance 0 $underline-background-color,comma);
-    $all: append($all, $distance (-$distance) 0 $underline-background-color,comma);
-    $all: append($all, $distance $distance 0 $underline-background-color,comma);
+    $distance: $underline-shadow-width * $i / $precision;
+
+    $all: append($all,           0    $distance  0 $underline-background-color, comma);
+    $all: append($all,           0  (-$distance) 0 $underline-background-color, comma);
+    $all: append($all,   $distance            0  0 $underline-background-color, comma);
+    $all: append($all, (-$distance)           0  0 $underline-background-color, comma);
+    $all: append($all, (-$distance) (-$distance) 0 $underline-background-color, comma);
+    $all: append($all, (-$distance)   $distance  0 $underline-background-color, comma);
+    $all: append($all,   $distance  (-$distance) 0 $underline-background-color, comma);
+    $all: append($all,   $distance    $distance  0 $underline-background-color, comma);
   }
   text-shadow: $all;
 }
