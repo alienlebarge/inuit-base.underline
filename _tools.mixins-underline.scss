@@ -38,25 +38,22 @@
   // why so much ?! -> http://dsh.re/14297
   $precision: 5;
   $all: ();
-  @for $i from 1 through $precision {
-    $distance: $underline-shadow-width * $i / $precision;
-
-    // top
-    $all: append($all,           0    $distance  0 $underline-background-color, comma);
-    // bottom
-    $all: append($all,           0  (-$distance) 0 $underline-background-color, comma);
-    // right
-    $all: append($all,   $distance            0  0 $underline-background-color, comma);
-    // left
-    $all: append($all, (-$distance)           0  0 $underline-background-color, comma);
-    // bottom left
-    $all: append($all, (-$distance) (-$distance) 0 $underline-background-color, comma);
-    // top left
-    $all: append($all, (-$distance)   $distance  0 $underline-background-color, comma);
-    // bottom right
-    $all: append($all,   $distance  (-$distance) 0 $underline-background-color, comma);
-    // top right
-    $all: append($all,   $distance    $distance  0 $underline-background-color, comma);
+  $delta-distance: $underline-shadow-width * 2 / ($precision - 1);
+  // from top-left to top-right
+  @for $i from 0 through ($precision - 1) {
+    $all: append($all, (-$underline-shadow-width)+$delta-distance*$i (-$underline-shadow-width) 0 $underline-background-color, comma)
+  }
+  // from bottom-left to bottom-right
+  @for $i from 0 through ($precision - 1) {
+    $all: append($all, (-$underline-shadow-width)+$delta-distance*$i $underline-shadow-width 0 $underline-background-color, comma)
+  }
+  // from top-left to bottom-left
+  @for $i from 0 through ($precision - 1) {
+    $all: append($all, (-$underline-shadow-width) (-$underline-shadow-width)+$delta-distance*$i 0 $underline-background-color, comma)
+  }
+  // from top-right to bottom-right
+  @for $i from 0 through ($precision - 1) {
+    $all: append($all, $underline-shadow-width (-$underline-shadow-width)+$delta-distance*$i 0 $underline-background-color, comma)
   }
   text-shadow: $all;
 }
